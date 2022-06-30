@@ -3,16 +3,16 @@
         name="modes"
         type="List"
         default="[
-    {'label': 'Easy', 'value': 'Easy'},
-    {'label': 'Medium', 'value': 'Medium'},
-    {'label': 'Hard', 'value': 'Hard'},
+    {'label': 'Easy', 'value': 'easy'},
+    {'label': 'Medium', 'value': 'medium'},
+    {'label': 'Hard', 'value': 'hard'},
     ]"
     />
 
     <aura:attribute name="selectedMode" type="String" />
 
     <lightning:card title="Word Shuffle">
-        <lightning:layout horizontalAlign="center">
+        <lightning:layout horizontalAlign="center" multipleRows="true">
             <lightning:layoutItem padding="around-small">
                 <lightning:combobox
                     name="gameMode"
@@ -36,8 +36,12 @@
             <lightning:layoutItem padding="around-small">
                 <lightning:button label="Reshuffle" title="Reshuffle" onclick="{!c.reshuffleBoard}" />
             </lightning:layoutItem>
+
+            <aura:if isTrue="{! (v.selectedMode != null)}">
+                <lightning:layoutItem size="12">
+                    <c:Board mode="{!v.selectedMode}"></c:Board>
+                </lightning:layoutItem>
+            </aura:if>
         </lightning:layout>
-        <!-- Bound expression -->
-        <p>Selected mode is : {!v.selectedMode}</p>
     </lightning:card>
 </aura:component>
