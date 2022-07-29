@@ -34,7 +34,7 @@
                 />
             </lightning:layoutItem>
             <lightning:layoutItem padding="around-small">
-                <lightning:button label="Reshuffle" title="Reshuffle" onclick="{!c.reshuffleBoard}" />
+            <lightning:button label="Reshuffle" title="Reshuffle" onclick="{!c.reshuffleBoard}" />
             </lightning:layoutItem>
 
             <aura:if isTrue="{! (v.selectedMode != null)}">
